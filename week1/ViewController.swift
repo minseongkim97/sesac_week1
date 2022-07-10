@@ -9,11 +9,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let colors: [UIColor] = [.cyan, .brown, .lightGray]
+    @IBOutlet var movieImages: [UIImageView]!
+    @IBOutlet weak var playButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        designMovieImages()
+        designPlayButton()
+    }
+    
+    func designMovieImages() {
+        for imageView in movieImages {
+            imageView.layer.cornerRadius = (imageView.frame.height / 2)
+            imageView.layer.borderWidth = 4
+            imageView.layer.borderColor = colors.randomElement()?.cgColor
+        }
+    }
+    
+    func designPlayButton() {
+        playButton.layer.cornerRadius = 5
     }
 
 
 }
+
+
 
